@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import cookieParser from 'cookie-parser';
 import express, { IRouterMatcher } from 'express';
 import cors from 'cors';
@@ -9,6 +10,7 @@ import { fileData, id_gen } from './utils';
 import { Note, NotePost, NotePut } from './types/Notes';
 import {noteModifyAllowed, schema_note} from './schemas/Notes';
 import { yup_validate } from './yup_utils';
+
 
 var app = express();
 //#region Express Extensions
@@ -172,10 +174,11 @@ w(app.post)('/notes', (req, res) => {
 //#endregion
 
 //#region Serve the app
-const http_port = 9080;
-// ,https_port = 9443
+const http_port = Number(process.env.APP_HTTP_PORT) || 9080;
+const hostname = process.env.APP_HOSTNAME || 'localhost';
+
 // Create an HTTP service.
-http.createServer(app).listen(http_port, 'localhost', () => console.log(`App listening on port ${http_port}`));
+http.createServer(app).listen(http_port, hostname, () => console.log(`App listening on port ${http_port}`));
 // Create an HTTPS service identical to the HTTP service.
 // var https_options = {
 //   key: fs.readFileSync(

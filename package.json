@@ -1,0 +1,30 @@
+{
+  "name": "express",
+  "version": "1.0.0",
+  "description": "Tiny general purpose express server",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "nodemon"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/cors": "^2.8.12",
+    "@types/express": "^4.17.13",
+    "@types/lodash": "^4.14.182",
+    "@types/moment": "^2.13.0",
+    "@types/node": "^17.0.30",
+    "nodemon": "^2.0.16",
+    "ts-node": "^10.7.0",
+    "typescript": "^4.6.4"
+  },
+  "dependencies": {
+    "axios": "^0.27.2",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "express": "^4.18.0",
+    "lodash": "^4.17.21",
+    "yup": "^0.32.11"
+  }
+}
